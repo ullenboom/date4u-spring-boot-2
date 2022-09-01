@@ -1,21 +1,28 @@
 package com.tutego.date4u.core.photo;
 
-import javax.validation.constraints.Min;
+import com.tutego.date4u.core.profile.Profile;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
+@Entity
+@Access( AccessType.FIELD )
 public class Photo {
 
-  @Min( 1 )
+  @Id @GeneratedValue( strategy = GenerationType.IDENTITY )
   private Long id;
 
-  private Long profile;
+  @ManyToOne
+  @JoinColumn( name = "profile_fk" )
+  private Profile profile;
 
   @NotNull @Pattern( regexp = "\\w{1,200}" )
   private String name;
 
+  @Column( name = "is_profile_photo" )
   private boolean isProfilePhoto;
 
   @NotNull @Past
@@ -24,7 +31,7 @@ public class Photo {
   protected Photo() {
   }
 
-  public Photo( Long id, long profile, String name, boolean isProfilePhoto, LocalDateTime created ) {
+  public Photo( Long id, Profile profile, String name, boolean isProfilePhoto, LocalDateTime created ) {
     this.id = id;
     this.profile = profile;
     this.name = name;
@@ -36,7 +43,7 @@ public class Photo {
     return id;
   }
 
-  public long getProfile() {
+  public Profile getProfile() {
     return profile;
   }
 
