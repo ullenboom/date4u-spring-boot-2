@@ -33,7 +33,7 @@ public class Profile {
   @OneToOne( mappedBy = "profile" )
   private Unicorn unicorn;
 
-  @OneToMany( mappedBy = "profile", fetch = FetchType.EAGER )
+  @OneToMany( mappedBy = "profile", fetch = FetchType.EAGER, cascade = CascadeType.ALL )
   private List<Photo> photos = new ArrayList<>();
 
   @ManyToMany( fetch = FetchType.EAGER )

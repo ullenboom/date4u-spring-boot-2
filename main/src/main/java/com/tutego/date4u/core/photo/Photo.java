@@ -19,7 +19,7 @@ public class Photo {
   @JoinColumn( name = "profile_fk" )
   private Profile profile;
 
-  @NotNull @Pattern( regexp = "\\w{1,200}" )
+  @NotNull @Pattern( regexp = "[\\w_-]{1,200}" )
   private String name;
 
   @Column( name = "is_profile_photo" )
