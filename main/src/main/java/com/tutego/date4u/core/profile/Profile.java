@@ -1,5 +1,6 @@
 package com.tutego.date4u.core.profile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tutego.date4u.core.photo.Photo;
 import org.springframework.lang.Nullable;
 
@@ -30,12 +31,15 @@ public class Profile {
   private String description;
   private LocalDateTime lastseen;
 
+  @JsonIgnore
   @OneToOne( mappedBy = "profile" )
   private Unicorn unicorn;
 
-  @OneToMany( mappedBy = "profile", fetch = FetchType.EAGER )
+  @JsonIgnore
+  @OneToMany( mappedBy = "profile", fetch = FetchType.EAGER, cascade = CascadeType.ALL )
   private List<Photo> photos = new ArrayList<>();
 
+  @JsonIgnore
   @ManyToMany( fetch = FetchType.EAGER )
   @JoinTable(
       name = "Likes",
@@ -44,6 +48,7 @@ public class Profile {
   )
   private Set<Profile> profilesThatILike = new HashSet<>();
 
+  @JsonIgnore
   @ManyToMany( fetch = FetchType.EAGER )
   @JoinTable(
       name = "Likes",

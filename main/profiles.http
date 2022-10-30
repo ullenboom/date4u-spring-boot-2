@@ -1,0 +1,47 @@
+### Get a photo from a profile
+GET http://localhost:8080/api/profiles/1/photos/0
+
+### Get all profiles
+GET http://localhost:8080/api/profiles
+
+### Get profile by ID
+GET http://localhost:8080/api/profiles/1
+
+### Delete profile by ID
+DELETE http://localhost:8080/api/profiles/1
+
+### Save new profile with existing ID
+POST http://localhost:8080/api/profiles/
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+
+### Save new profile
+POST http://localhost:8080/api/profiles/
+Content-Type: application/json
+
+{
+  "nickname": "CrazyEyes",
+  "birthdate": "1980-08-16",
+  "hornlength": 3,
+  "gender": 1,
+  "attractedToGender": 0,
+  "lastseen": "2022-07-03T22:57:55"
+}
+
+### Update profile
+PUT http://localhost:8080/api/profiles/33
+Content-Type: application/json
+
+{
+  "nickname": "CrazyEyes",
+  "birthdate": "1980-08-16",
+  "hornlength": 6,
+  "gender": 1,
+  "attractedToGender": 0,
+  "lastseen": "2022-07-03T22:59:55"
+}
+

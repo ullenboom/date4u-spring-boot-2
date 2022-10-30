@@ -1,0 +1,9 @@
+### Get statistics
+GET http://localhost:8080/api/stat/total
+
+
+### Get last seen
+GET http://localhost:8080/api/stat/last-seen
+
+###
+GET http://localhost:8080/api/stat/last-seen?start=2021-06&end=2021-09

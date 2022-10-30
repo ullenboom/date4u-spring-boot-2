@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <script src="https://tinyurl.com/yc85pn5b"></script>
+  <script src="https://tinyurl.com/yckd3cbe"></script>
+</head><body>
+<canvas id="chart" height="100px"></canvas>
+<script>
+    fetch("/api/stat/last-seen")
+        .then(response => response.json())
+        .then(json =>
+            new Chart("chart", {
+                type: "bar",
+                options: {scales: {x: {type: 'time', time: {unit: 'month'}}}},
+                data: {datasets: [{data: json.data, label: "#Last Seen"}]}
+            }));
+</script>
+</body></html>
