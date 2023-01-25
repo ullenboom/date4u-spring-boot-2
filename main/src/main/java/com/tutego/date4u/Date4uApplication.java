@@ -9,9 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableCaching
 @EnableAsync
 public class Date4uApplication {
-
   public static void main( String[] args ) {
     SpringApplication.run( Date4uApplication.class, args );
   }
-
 }
